@@ -1,12 +1,14 @@
 import React, { useState, useEffect }  from 'react';
 import './add-person-form.scss';
 import { useParams,Link, withRouter } from 'react-router-dom';
+import cancel from '../../Assets/logo/cross.jpeg';
+import bookLogo from '../../Assets/logo/AddressBookLogo.jpeg';
 const AddPersonForm = (props) => {
     return(
         <div>
             <header class = "header-content header">
                 <div class = "logo-content">
-                    <img src = "../Assets/logo/Address Book logo.jpeg" alt = ""/>
+                    <img src = {bookLogo} alt = ""/>
                     <div>
                         <span class = "address-text">ADDRESS</span><br />
                         <span class = "address-text address-book">BOOK</span>
@@ -18,17 +20,31 @@ const AddPersonForm = (props) => {
                     <div class = "form-head-content">
                         <div class = "form-head">PERSON ADDRESS FORM</div>
                         <div class = "form-logo-header"><a href = "./AddressBookHomePage.html">
-                            <img src = "../Assets/logo/Delete contact logo.jpeg" /></a>
+                            <img src = {cancel} /></a>
                         </div>
                     </div>
-                    <div class = "row-content">
-                        <label class = "label text" for = "fullName">Full Name</label>
-                        <input class = "input" type = "text" id="name" name="name" placeholder="Enter Your Name" required />
+                    <div class = "row-content display">
+                        <div class = "label text" for = "fullName">Full Name</div>
+                        <div>
+                            <input class = "input" type = "text" id="name" name="name" placeholder="Enter Your Name" required />
+                        </div>
+                        
                         <error-output class = "text-error" for = "text"></error-output>
                     </div>
                     <div class = "row-content">
-                        <textarea class = "input" id = "address" name = "address" type = "text"
-                        placeholder="Address" required></textarea>
+                        <div class = "label text" for = "phonenumber">Phone Number</div>
+                        <div>
+                            <input class = "input" type = "number" id = "phoneNumber" name = "phoneNumber" 
+                                placeholder="Phone Number" required />
+                        </div>
+                        <error-output class = "phone-error" for = "phone"></error-output>
+                    </div>
+                    <div class = "row-content">
+                        <div class = "label text" for = "address">Address</div>
+                        <div>
+                            <textarea class = "input" id = "address" name = "address" type = "text"
+                            placeholder="Address" required></textarea>
+                        </div>
                         <error-output class = "address-error" for = "address"></error-output>
                     </div>
                     <div class = "row-content">
@@ -52,15 +68,9 @@ const AddPersonForm = (props) => {
                             <input class = "input" type = "number" id = "zipcode" name = "zipcode" placeholder="Zipcode" required />
                         </div>
                     </div>
-                    <div class = "row-content">
-                        <input class = "input" type = "number" id = "phoneNumber" name = "phoneNumber" 
-                            placeholder="Phone Number" required />
-                        <error-output class = "phone-error" for = "phone"></error-output>
-                    </div>
                     <div class = "buttonParent">
-                        <a href = "./AddressBooMainPage.html" class ="resetButton button cancelButton">Cancel</a>
                         <div class = "submit-reset">
-                            <button type = "submit" class = "button submitButton" id="submitButton">Submit</button>
+                            <button type = "submit" class = "button submitButton" id="submitButton">Add</button>
                             <button type ="reset" class = "button resetButton" id ="resetButton">Reset</button>
                         </div>
                     </div>
